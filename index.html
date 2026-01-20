@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Roberto | Desenvolvedor Java</title>
+    
+    <!-- Meta Tags para LinkedIn -->
+    <meta property="og:title" content="Seu Nome - Desenvolvedor Java">
+    <meta property="og:description" content="Portfólio técnico com projetos Java, Spring Boot e APIs REST">
+    <meta property="og:type" content="website">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cores preto e dourado */
+            --gold: #FFD700;
+            --gold-dark: #D4AF37;
+            --gold-light: #FFF8DC;
+            --black: #000000;
+            --black-light: #1a1a1a;
+            --black-dark: #0a0a0a;
+            --gray: #333333;
+            --gray-light: #666666;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background-color: var(--black);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Seções */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section - Preto e Dourado */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--black-dark) 0%, var(--black-light) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Padrão geométrico dourado sutil */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.03) 50%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--gold) 0%, var(--gold-dark) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Linha decorativa abaixo do nome */
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .typing-text {
+            display: inline-block;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--gold);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .contact-link i {
+            color: var(--gold);
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(212, 175, 55, 0.1));
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .social-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(212, 175, 55, 0.2));
+            transform: translateY(-2px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Projetos Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Card de E-commerce */
+        .project-card {
+            background: var(--black-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--gray);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+        }
+
+        .project-header {
+            padding: 2rem 2rem 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+            color: var(--black);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .project-subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            color: var(--black);
+        }
+
+        .project-description {
+            padding: 1.5rem 2rem;
+            flex-grow: 1;
+        }
+
+        .project-description p {
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 4px 12px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .project-links {
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+            flex: 1;
+            justify-content: center;
+            border: none;
+            font-weight: 600;
+        }
+
+        .link-btn:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .project-video {
+            padding: 0 2rem 2rem;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            border: 2px solid var(--gray);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .video-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+
+        .video-thumbnail i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: var(--gold);
+            background: rgba(0, 0, 0, 0.8);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+        }
+
+        .video-thumbnail:hover i {
+            background: rgba(255, 215, 0, 0.9);
+            color: var(--black);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-link {
+            display: block;
+            text-align: center;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .video-link:hover {
+            color: var(--gold-light);
+            text-decoration: underline;
+        }
+
+        .project-features {
+            padding: 0 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+
+        .feature i {
+            color: var(--gold);
+        }
+
+        /* Modal de Vídeo */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--gold-light);
+            transform: scale(1.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black-dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--gray);
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer p:last-child {
+            color: var(--gold);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-link {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-contact {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            
+            .hero-title::after {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="highlight">Carlos Roberto Ribeiro Santos Junior</span>
+                </h1>
+                
+                <h2 class="hero-subtitle">
+                    <span class="typing-text">Desenvolvedor Java</span>
+                    <span class="cursor">|</span>
+                </h2>
+                
+                <div class="hero-contact">
+                    <a href="http://wa.me/5579988317115" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>(79) 9 8831-7115</span>
+                    </a>
+                    <a href="mailto:seu@email.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>crrsj1@gmail.com</span>
+                    </a>
+                </div>
+                
+                <div class="hero-links">
+                    <a href="https://github.com/crrsj?tab=repositories" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/carlos-roberto-dev-java/" target="_blank" class="social-btn">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.youtube.com/@CarlosRoberto-wl4kh" target="_blank" class="social-btn">
+                        <i class="fab fa-youtube"></i>
+                        YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projetos -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos em Destaque</h2>
+            <p class="section-subtitle">Projetos e suas tecnologias</p>
+            
+            <div class="projects-grid">
+                <!-- CARD 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">🏆 Destaque</div>
+                        <h3 class="project-title">Sistema de controle financeiro</h3>
+                        <p class="project-subtitle">Sistema para controlar finanças pessoais</p>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p>Sistema completo para auxiliar no controle de finanças pessoais.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                             <span class="tech-tag">Spring</span>
+                            <span class="tech-tag">H2</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">Javascript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/crrsj/gerenciamento-financeiro-back" class="link-btn" target="_blank">
+                            <i class="fas fa-server"></i>
+                            Backend Code
+                        </a>
+                        <a href="https://github.com/crrsj/gerenciamento-financeiro-front" class="link-btn" target="_blank">
+                            <i class="fas fa-desktop"></i>
+                            Frontend Code
+                        </a>
+                    </div>
+                    
+                    <div class="project-video">
+                        <div class="video-thumbnail" data-video="lXkd-Lm8rPg" data-start="2">
+                            <i class="fas fa-play"></i>
+                            <img src="https://img.youtube.com/vi/lXkd-Lm8rPg/hqdefault.jpg" 
+                                 alt="Demo do Sistema ">
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=lXkd-Lm8rPg&t=2s" 
+                           class="video-link" 
+                           target="_blank">
+                            Ver demonstração completa no YouTube
+                        </a>
+                    </div>
+           
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">🚀 Destaque</div>
+                        <h3 class="project-title">Sistema de gestão de pacientes</h3>
+                        <p class="project-subtitle">Controle e gestão de pacientes</p>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p>Sistema robusto e eficientepara gestão e controle de pacientes.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring</span>
+                            <span class="tech-tag">H2</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/crrsj/api-pacientes-back" class="link-btn" target="_blank">
+                            <i class="fas fa-server"></i>
+                            Backend Code
+                        </a>
+                        <a href="https://github.com/crrsj/gestao-de-pacientes-front" class="link-btn" target="_blank">
+                            <i class="fas fa-desktop"></i>
+                            Frontend Code
+                        </a>
+                    </div>
+                    
+                    <div class="project-video">
+                        <div class="video-thumbnail" data-video="oeej3K0DdKU"data-start="0">
+                            <i class="fas fa-play"></i>
+                            <img src="https://img.youtube.com/vi/oeej3K0DdKU/hqdefault.jpg" 
+                                 alt="Demo do Sistema ">
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=oeej3K0DdKU" 
+                           class="video-link" 
+                           target="_blank">
+                            Ver demonstração completa no YouTube
+                        </a>
+                    </div>                   
+                
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">🔧 Destaque</div>
+                        <h3 class="project-title">Sistema Para assistência a pcs e notebook</h3>
+                        <p class="project-subtitle">Gestão de assistência técnica</p>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p>Sistema para gerenciar uma assistência técnica de pcs e notebooks.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring</span>
+                            <span class="tech-tag">H2</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                             <span class="tech-tag">JS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/crrsj/API-Assistencia-computadores" class="link-btn" target="_blank">
+                            <i class="fas fa-server"></i>
+                            Backend Code
+                        </a>
+                        <a href="https://github.com/crrsj/assistencia-computadores-frontend" class="link-btn" target="_blank">
+                            <i class="fas fa-desktop"></i>
+                            Frontend Code
+                        </a>
+                    </div>
+                    
+                    <div class="project-video">
+                        <div class="video-thumbnail" data-video="dleOXkKErgk" data-start="0">
+                            <i class="fas fa-play"></i>
+                            <img src="https://img.youtube.com/vi/dleOXkKErgk/hqdefault.jpg" class="link-btn" target="_blank" 
+                                 alt="Demo do Sistema">
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=dleOXkKErgk" 
+                           class="video-link" 
+                           target="_blank">
+                            Ver demonstração completa no YouTube
+                        </a>
+                    </div>
+                    
+                  </div>
+
+                <!-- CARD 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">⚡ Sistema PDV</div>
+                        <h3 class="project-title">Sistema de ponto de venda</h3>
+                        <p class="project-subtitle">PDV</p>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p>Sistema para ponto de venda no setor alimentício.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring</span>
+                            <span class="tech-tag">H2</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/crrsj/api-sistema-pdv" class="link-btn" target="_blank">
+                            <i class="fas fa-server"></i>
+                            Backend Code
+                        </a>
+                        <a href="https://github.com/crrsj/pdv-front" class="link-btn" target="_blank">
+                            <i class="fas fa-desktop"></i>
+                            Frontend Code
+                        </a>
+                    </div>
+                    
+                    <div class="project-video">
+                        <div class="video-thumbnail" data-video="bMh3iJ4WYwY" data-start="0">
+                            <i class="fas fa-play"></i>
+                            <img src="https://img.youtube.com/vi/bMh3iJ4WYwY/hqdefault.jpg" 
+                                 alt="Demo do Sistema">
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=bMh3iJ4WYwY" 
+                           class="video-link" 
+                           target="_blank">
+                            Ver demonstração completa no YouTube
+                        </a>
+                    </div>
+               
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">🎯 Flight On Time</div>
+                        <h3 class="project-title"></h3>
+                        <p class="project-subtitle">Microserviço Java com Spring Boot,Python,Flask,HTML,CSS,JS</p>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p >Projeto desenvolvido baseado no hackhathon da Oracle One Next Education em parceria com a Alura.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">H2</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Actuator</span>
+                            <span class="tech-tag">Junity</span>
+                            <span class="tech-tag">Mockito</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/crrsj/hachathon-one" class="link-btn" target="_blank">
+                            <i class="fas fa-server"></i>
+                            Backend e Frontend 
+                        </a>
+                     
+                    </div>
+                    
+                    <div class="project-video">
+                        <div class="video-thumbnail"  data-video="-itmkeEqDH0" data-start="0" >
+                            <i class="fas fa-play"></i>
+                            <img src="https://img.youtube.com/vi/-itmkeEqDH0/hqdefault.jpg" 
+                                 alt="Demo do Sistema">
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=-itmkeEqDH0" 
+                           class="video-link" 
+                           target="_blank">
+                            Ver demonstração completa no YouTube
+                        </a>
+                    </div>                    
+              
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-container">
+                <iframe id="videoFrame" width="560" height="315" 
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+  
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="currentYear"></span> Carlos Roberto Ribeiro Santos Junior. Todos os direitos reservados.</p>
+            <p>Desenvolvido com 💙 e muito código Java</p>
+        </div>
+    </footer>
+
+   
+    <script>
+       
+        const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+        const videoModal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        const modalClose = document.querySelector('.modal-close');
+        const currentYear = document.getElementById('currentYear');
+        const typingText = document.querySelector('.typing-text');
+        const cursor = document.querySelector('.cursor');
+
+        // Texto para efeito de digitação
+        const texts = [
+            'Desenvolvedor Java',
+            'Spring Boot ',
+            'Experiência com mais de 220 projetos práticos',
+            'Vamos conversar?'
+           
+           
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+
+        
+        function typeEffect() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                isEnd = true;
+                isDeleting = true;
+                setTimeout(typeEffect, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex++;
+                if (textIndex === texts.length) {
+                    textIndex = 0;
+                }
+                setTimeout(typeEffect, 500);
+            } else {
+                const typingSpeed = isDeleting ? 50 : 100;
+                setTimeout(typeEffect, typingSpeed);
+            }
+        }
+
+        videoThumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', async () => {
+                const videoId = thumbnail.getAttribute('data-video');
+                const startTime = thumbnail.getAttribute('data-start') || 0;
+                
+              
+                const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&start=${startTime}&rel=0&modestbranding=1&playsinline=1`;
+                
+                try {
+                    
+                    videoFrame.src = embedUrl;
+                    videoModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    
+                    const handleIframeError = () => {
+                        console.log('Erro ao carregar iframe, redirecionando para YouTube...');
+                        videoFrame.src = '';
+                        videoModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        
+                       
+                        window.open(`https://www.youtube.com/watch?v=${videoId}&t=${startTime}s`, '_blank');
+                    };
+                    
+                    
+                    videoFrame.onerror = null;
+                    videoFrame.onerror = handleIframeError;
+                    
+                    
+                    setTimeout(() => {
+                        if (videoFrame.src && !videoFrame.contentWindow) {
+                            handleIframeError();
+                        }
+                    }, 5000);
+                    
+                } catch (error) {
+                    console.error('Erro ao abrir modal:', error);
+                    // Fallback direto para YouTube
+                    window.open(`https://www.youtube.com/watch?v=${videoId}&t=${startTime}s`, '_blank');
+                }
+            });
+        });
+
+        function closeVideoModal() {
+          
+            if (videoFrame.src) {
+                videoFrame.src = videoFrame.src.replace('autoplay=1', 'autoplay=0');
+            }
+            
+            videoModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+           
+            setTimeout(() => {
+                videoFrame.src = '';
+            }, 300);
+        }
+
+       
+        modalClose.addEventListener('click', closeVideoModal);
+
+      
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
+
+      
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+      
+        currentYear.textContent = new Date().getFullYear();
+
+       
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+      
+        document.querySelectorAll('.project-card').forEach(el => {
+            observer.observe(el);
+        });
+
+       
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+     
+        function blinkCursor() {
+            cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+        }
+        setInterval(blinkCursor, 500);
+
+      
+        document.addEventListener('DOMContentLoaded', () => {
+           
+            setTimeout(typeEffect, 1000);
+            
+         
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+            
+           
+            checkHTMLStructure();
+        });
+
+       
+        function checkHTMLStructure() {
+            console.log('=== VERIFICAÇÃO DO HTML ===');
+            
+            const thumbnails = document.querySelectorAll('.video-thumbnail');
+            console.log(`✅ Thumbnails encontrados: ${thumbnails.length}`);
+            
+            thumbnails.forEach((thumb, index) => {
+                const videoId = thumb.getAttribute('data-video');
+                const startTime = thumb.getAttribute('data-start');
+                
+                console.log(`Card ${index + 1}:`);
+                console.log(`  data-video: ${videoId}`);
+                console.log(`  data-start: ${startTime}`);
+            });
+            
+            console.log('=== TUDO CORRETO! ===');
+        }
+
+     
+        function addCardAnimations() {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        }
+
+       
+        window.addEventListener('load', addCardAnimations);
+
+      
+        window.addEventListener('error', (e) => {
+            console.error('Erro global:', e.error);
+        });
+
+        
+        window.addEventListener('beforeunload', () => {
+            if (videoFrame.src) {
+                videoFrame.src = '';
+            }
+            observer.disconnect();
+        });
+    </script>
+</body>
+</html>
